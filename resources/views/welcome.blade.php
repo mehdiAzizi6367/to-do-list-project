@@ -416,11 +416,13 @@
                 </div>
             </div>
         @endif
-
         <!-- Footer -->
         <footer class="mt-16 py-8 border-t bg-gray-100 dark:bg-gray-900 border-gray-300 dark:border-gray-700">
             <div class="container mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
                 <p>&copy; 2026 To-Do List App. Built with Laravel & Tailwind CSS.</p>
+                <a href="mailto:samiaziziazizi636@gmail.com" class="text-blue-500 hover:text-blue-700">
+                    Contact Us
+                </a>
             </div>
         </footer>
     </body>
