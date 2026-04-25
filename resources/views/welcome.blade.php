@@ -100,7 +100,7 @@
                     <h1 class="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                         {{ $greeting }}, {{ $user->name }}!
                     </h1>
-                    <p class="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                    <p class="text-xl lg:text-2xl dark:text-gray-300 mb-4 leading-relaxed" >
                         {{ $randomMessage }}
                     </p>
                     <p class="text-lg text-green-600 dark:text-green-400 font-medium mb-8">
@@ -314,38 +314,52 @@
             @endphp
 
             <!-- Guest Landing Page -->
-            <div class="container mx-auto px-6 py-12 lg:py-20">
-                <div class="text-center max-w-4xl mx-auto">
-                    <!-- Dynamic Logo/Icon -->
-                    <div class="mb-8">
-                        <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6 animate-pulse">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $timeIcon }}"></path>
-                            </svg>
+            <!-- Header Section with Background Image -->
+            <div  class="relative min-h-screen from-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+                <!-- Background Image Overlay -->
+                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10" 
+                     style="background-image: url('/images/hero-bg.jpg'); ">
+                </div>
+
+                <!-- Header Content Overlay -->
+                <div class="relative z-10 py-4 container mx-auto px-6 lg:py-20 mt-11 " style=" width: 800px; border-radius: 30px; background:rgba(150,100,300,0.6)">
+                    <div class="text-center max-w-4xl mx-auto" s>
+                        <!-- Dynamic Logo/Icon -->
+                        <div class="mb-8">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6 animate-pulse">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $timeIcon }}"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Headline -->
+                        <h1 class="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            {{ $greeting }}!
+                        </h1>
+                        <p class="text-xl lg:text-2xl  text-white mb-8 leading-relaxed">
+                            {{ $guestMessage }}
+                        </p>
+
+                        <!-- CTA Buttons - SUPER VISIBLE -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 p-8 bg-yellow-200 border-4 border-red-500">
+                            <a href="{{ route('register') }}"
+                               class="inline-flex items-center px-8 p-4 bg-red-500 text-white font-bold text-xl rounded-lg shadow-lg border-4 border-black animate-pulse" style="background:orange;">
+                                REGISTER HERE 
+                            </a>
+                            <a href="{{ route('login') }}"
+                               class="inline-flex items-center px-8 p-4 bg-orange-500 text-white font-bold text-xl rounded-lg shadow-lg border-4 border-black animate-bounce"style="background:orange;">
+                                LOGIN HERE 
+                            </a>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Dynamic Headline -->
-                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                        {{ $greeting }}!
-                    </h1>
-                    <p class="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                        {{ $guestMessage }}
-                    </p>
-
-                    <!-- CTA Buttons - SUPER VISIBLE -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 p-8 bg-yellow-200 border-4 border-red-500">
-                        <a href="{{ route('register') }}"
-                           class="inline-flex items-center px-8 py-4 bg-red-500 text-dark font-bold text-xl rounded-lg shadow-lg border-4 border-black animate-pulse">
-                            🚨 REGISTER HERE 🚨
-                        </a>
-                        <a href="{{ route('login') }}"
-                           class="inline-flex items-center px-8 py-4 bg-orange-500 text-dark font-bold text-xl rounded-lg shadow-lg border-4 border-black animate-bounce">
-                            🔐 LOGIN HERE 🔐
-                        </a>
-                    </div>
-
-                    <!-- Dynamic Features Grid -->
+            <!-- Cards Section - Separate from Background Image -->
+            <div class="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+                <div class="container mx-auto px-6 py-12 lg:py-20">
+                    <div class="text-center max-w-4xl mx-auto">
                     <div class="grid md:grid-cols-3 gap-8 mt-16">
                         @foreach($features as $feature)
                         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 transform hover:scale-105">
@@ -414,6 +428,7 @@
                     </div>
                     @endif
                 </div>
+            </div>
             </div>
         @endif
         <!-- Footer -->
